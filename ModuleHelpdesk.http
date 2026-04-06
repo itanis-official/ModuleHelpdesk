@@ -1,0 +1,6 @@
+@ModuleHelpdesk_HostAddress = http://localhost:5036
+
+GET {{ModuleHelpdesk_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

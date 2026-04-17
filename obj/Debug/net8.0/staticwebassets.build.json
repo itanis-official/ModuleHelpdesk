@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"QvCPzS6kI7BdtCc1aRqRgaOpzVQ2wImDdHgIcar0qZA=","Source":"ModuleHelpdesk","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "HBIu+JOkI94JCLwj9k/7JU0z+HqQNxpsOHa3aSHxl7k=",
+  "Source": "ModuleHelpdesk",
+  "BasePath": "_content/ModuleHelpdesk",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

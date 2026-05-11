@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hanen\\ModuleHelpdesk\\ModuleHelpdesk.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\wasssim\\ModuleHelpdesk\\ModuleHelpdesk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hanen\\ModuleHelpdesk\\ModuleHelpdesk.csproj": {
+    "C:\\Users\\Admin\\Desktop\\wasssim\\Contrat-d-evenement\\ITANIS.SharedEvents.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hanen\\ModuleHelpdesk\\ModuleHelpdesk.csproj",
-        "projectName": "ModuleHelpdesk",
-        "projectPath": "C:\\Users\\Hanen\\ModuleHelpdesk\\ModuleHelpdesk.csproj",
-        "packagesPath": "C:\\Users\\Hanen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hanen\\ModuleHelpdesk\\obj\\",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\wasssim\\Contrat-d-evenement\\ITANIS.SharedEvents.csproj",
+        "projectName": "ITANIS.SharedEvents",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\wasssim\\Contrat-d-evenement\\ITANIS.SharedEvents.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\wasssim\\Contrat-d-evenement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hanen\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,16 +37,99 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Desktop\\wasssim\\ModuleHelpdesk\\ModuleHelpdesk.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\wasssim\\ModuleHelpdesk\\ModuleHelpdesk.csproj",
+        "projectName": "ModuleHelpdesk",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\wasssim\\ModuleHelpdesk\\ModuleHelpdesk.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\wasssim\\ModuleHelpdesk\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Desktop\\wasssim\\Contrat-d-evenement\\ITANIS.SharedEvents.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\wasssim\\Contrat-d-evenement\\ITANIS.SharedEvents.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.2.5, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.2.5, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -72,7 +155,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

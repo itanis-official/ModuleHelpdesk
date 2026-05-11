@@ -1,22 +1,30 @@
-# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-#dossier du code source
 WORKDIR /src
-# Copy only project file first (better caching)
-COPY ModuleHelpdesk.csproj .
-RUN dotnet restore
-# Copy the rest of the source code
-COPY . .
-RUN dotnet publish -c Release -o out 
 
-# Runtime stage
+# 1. Copie des fichiers projets (.csproj)
+# Rappel : le contexte est "..", donc on doit spécifier les sous-dossiers
+COPY ModuleHelpdesk/ModuleHelpdesk.csproj ModuleHelpdesk/
+COPY Contrat-d-evenement/ITANIS.SharedEvents.csproj Contrat-d-evenement/
+
+# 2. Restauration des dépendances
+# On restaure le projet principal qui va automatiquement chercher ses références
+RUN dotnet restore ModuleHelpdesk/ModuleHelpdesk.csproj
+
+# 3. Copie du code source complet
+COPY ModuleHelpdesk/ ModuleHelpdesk/
+COPY Contrat-d-evenement/ Contrat-d-evenement/
+
+# 4. Publication
+WORKDIR /src/ModuleHelpdesk
+RUN dotnet publish -c Release -o /app/out
+
+# --- Étape finale ---
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
-#dossier de l'application compilée
 WORKDIR /app
-COPY --from=build /src/out .
+COPY --from=build /app/out .
 
-#Pour garantir que ton API écoute bien dans le container.
+# Configuration réseau
 ENV ASPNETCORE_URLS=http://+:8080
-
 EXPOSE 8080 
+
 ENTRYPOINT ["dotnet", "ModuleHelpdesk.dll"]

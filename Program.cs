@@ -1,40 +1,72 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using ModuleHelpDesk.Data;
 using ModuleHelpDesk.Repositories;
+using ModuleHelpdesk.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. AJOUT DES SERVICES DE BASE
-builder.Services.AddControllers(); // Indispensable pour utiliser les Controllers [ApiController]
+builder.Services.AddControllers(); 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// 2. CONFIGURATION DU DBCONTEXT
-// On récupère la chaîne de connexion depuis appsettings.json
-var connectionString = builder.Configuration.GetConnectionString("HelpDeskConnection");
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins(
+                "http://localhost:3000",
+                "http://localhost:5173"
+              )
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
+var connectionString = builder.Configuration.GetConnectionString("HelpDeskConnection");
 builder.Services.AddDbContext<HelpDeskDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// 3. INJECTION DE DÉPENDANCE POUR LE REPOSITORY
-// Cela permet au Controller de recevoir l'interface ITicketRepository
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+
+builder.Services.AddMassTransit(x =>
+{
+    // Register your consumers
+    x.AddConsumer<AgentSyncConsumer>();
+    x.AddConsumer<CompanySyncConsumer>();
+
+    x.UsingRabbitMq((ctx, cfg) =>
+    {
+        cfg.Host("51.254.133.231", 31672, "/", h =>
+        {
+            h.Username("admin");
+            h.Password("rabbitMQ-dev");
+        });
+
+        // Each consumer needs its own receive endpoint
+        cfg.ReceiveEndpoint("helpdesk-agent-sync", e =>
+        {
+            e.ConfigureConsumer<AgentSyncConsumer>(ctx);
+        });
+
+        cfg.ReceiveEndpoint("helpdesk-company-sync", e =>
+        {
+            e.ConfigureConsumer<CompanySyncConsumer>(ctx);
+        });
+    });
+});
 
 var app = builder.Build();
 
-// 4. CONFIGURATION DU PIPELINE (Middleware)
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Supprime ou commente UseHttpsRedirection si tu as des problèmes de certificats en local/Docker
-// app.UseHttpsRedirection();
-
-app.UseAuthorization(); // Important pour plus tard
-
-// 5. MAPPAGE DES CONTROLLERS
-app.MapControllers(); // C'est cette ligne qui va chercher ton TicketsController
+// ─── Middleware order matters ──────────────────────────────────────────────────
+app.UseCors("AllowFrontend");   // must be before UseAuthorization
+app.UseAuthorization(); 
+app.MapControllers(); 
 
 app.Run();

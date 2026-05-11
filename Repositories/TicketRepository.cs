@@ -85,6 +85,70 @@ namespace ModuleHelpDesk.Repositories
                 .ToListAsync();
         }
 
+
+public async Task TransferTicketAsync(int ticketId, string newAgentId)
+{
+    var ticket = await _context.Tickets.FindAsync(ticketId);
+    if (ticket != null)
+    {
+        ticket.AgentPrincipalId = newAgentId;
+        _context.Tickets.Update(ticket);
+        await _context.SaveChangesAsync();
+    }
+}
+
+public async Task AddCollaborateursAsync(int ticketId, List<string> agentIds)
+
+{
+    var existingAgentIds = await _context.TicketCollaborateurs
+        .Where(c => c.TicketId == ticketId)
+        .Select(c => c.AgentId)
+        .ToListAsync();
+    var newCollabs = agentIds
+        .Where(id => !existingAgentIds.Contains(id))
+        .Select(id => new TicketCollaborateur 
+        { 
+            TicketId = ticketId, 
+            AgentId = id 
+        }).ToList();
+
+    if (newCollabs.Any())
+    {
+        await _context.TicketCollaborateurs.AddRangeAsync(newCollabs);
+        await _context.SaveChangesAsync();
+    }
+}
+
+public async Task SyncCollaborateursAsync(int ticketId, List<string> newAgentIds)
+{
+    var currentCollabs = await _context.TicketCollaborateurs
+        .Where(c => c.TicketId == ticketId)
+        .ToListAsync();
+    var toRemove = currentCollabs.Where(c => !newAgentIds.Contains(c.AgentId)).ToList();
+    if (toRemove.Any())
+    {
+        _context.TicketCollaborateurs.RemoveRange(toRemove);
+    }
+    var currentIds = currentCollabs.Select(c => c.AgentId).ToList();
+    var toAdd = newAgentIds
+        .Where(id => !currentIds.Contains(id))
+        .Select(id => new TicketCollaborateur { TicketId = ticketId, AgentId = id })
+        .ToList();
+
+    if (toAdd.Any())
+    {
+        await _context.TicketCollaborateurs.AddRangeAsync(toAdd);
+    }
+    await _context.SaveChangesAsync();
+}
+
+public async Task<IEnumerable<TicketCollaborateur>> GetCollaborateursByTicketIdAsync(int ticketId)
+{
+    return await _context.TicketCollaborateurs
+        .Where(c => c.TicketId == ticketId)
+        .ToListAsync();
+}
+
         #endregion
 
         #region Interventions Logic

@@ -18,6 +18,13 @@ namespace ModuleHelpDesk.Data
         public DbSet<KnowledgeBase> KnowledgeBases { get; set; }
         public DbSet<KnowledgeSolution> KnowledgeSolutions { get; set; }
 
+
+
+
+        public DbSet<Agent> Agents { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -52,6 +59,12 @@ namespace ModuleHelpDesk.Data
                 .WithMany(k => k.Solutions)
                 .HasForeignKey(s => s.KnowledgeBaseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+
+                modelBuilder.Entity<Agent>()
+        .Property(a => a.Id)
+        .ValueGeneratedNever();
         }
+        
     }
 }

@@ -17,6 +17,18 @@ namespace ModuleHelpDesk.Repositories
         Task<IEnumerable<Ticket>> GetByStatusAsync(StatutTicket status);
         Task<IEnumerable<Ticket>> GetByPriorityAsync(PrioriteTicket priority);
 
+
+
+        // Gestion des Agents et Transferts
+        Task TransferTicketAsync(int ticketId, string newAgentId);
+
+        // Gestion des Collaborateurs
+        Task AddCollaborateursAsync(int ticketId, List<string> newAgentIds);
+        
+        Task SyncCollaborateursAsync(int ticketId, List<string> newAgentIds);
+
+        Task<IEnumerable<TicketCollaborateur>> GetCollaborateursByTicketIdAsync(int ticketId);
+
         // Facturation
         Task<IEnumerable<Ticket>> GetTicketsForFacturationAsync(string clientId, DateTime startDate, DateTime endDate);
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModuleHelpDesk.Data;
 
@@ -11,9 +12,11 @@ using ModuleHelpDesk.Data;
 namespace ModuleHelpdesk.Migrations
 {
     [DbContext(typeof(HelpDeskDbContext))]
-    partial class HelpDeskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260505133131_SyncTables")]
+    partial class SyncTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +28,10 @@ namespace ModuleHelpdesk.Migrations
             modelBuilder.Entity("Agent", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AgentType")
                         .HasColumnType("nvarchar(max)");
@@ -71,7 +77,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Agents", (string)null);
+                    b.ToTable("Agents");
                 });
 
             modelBuilder.Entity("Company", b =>
@@ -121,7 +127,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies", (string)null);
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("Contact", b =>
@@ -164,7 +170,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.Intervention", b =>
@@ -193,7 +199,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Interventions", (string)null);
+                    b.ToTable("Interventions");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.KnowledgeBase", b =>
@@ -221,7 +227,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("KnowledgeBases", (string)null);
+                    b.ToTable("KnowledgeBases");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.KnowledgeSolution", b =>
@@ -254,7 +260,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasIndex("KnowledgeBaseId");
 
-                    b.ToTable("KnowledgeSolutions", (string)null);
+                    b.ToTable("KnowledgeSolutions");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.MessageTicket", b =>
@@ -286,7 +292,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("MessageTickets", (string)null);
+                    b.ToTable("MessageTickets");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.Ticket", b =>
@@ -360,7 +366,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasIndex("InterventionId");
 
-                    b.ToTable("Tickets", (string)null);
+                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.TicketCollaborateur", b =>
@@ -382,7 +388,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("TicketCollaborateurs", (string)null);
+                    b.ToTable("TicketCollaborateurs");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.KnowledgeSolution", b =>

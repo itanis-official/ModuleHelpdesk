@@ -57,7 +57,7 @@ namespace ModuleHelpdesk.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("Rating")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(3,2)");
 
                     b.Property<string>("Role")
                         .IsRequired()
@@ -71,19 +71,19 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Agents", (string)null);
+                    b.ToTable("Agents");
                 });
 
             modelBuilder.Entity("Company", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Adresse")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AgentResponsableId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CodePostal")
                         .HasColumnType("nvarchar(max)");
@@ -121,16 +121,13 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies", (string)null);
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("Contact", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
@@ -164,7 +161,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.Intervention", b =>
@@ -193,7 +190,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Interventions", (string)null);
+                    b.ToTable("Interventions");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.KnowledgeBase", b =>
@@ -203,6 +200,9 @@ namespace ModuleHelpdesk.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AgentId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Categorie")
                         .HasColumnType("int");
@@ -221,7 +221,9 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("KnowledgeBases", (string)null);
+                    b.HasIndex("AgentId");
+
+                    b.ToTable("KnowledgeBases");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.KnowledgeSolution", b =>
@@ -232,9 +234,8 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateResolution")
                         .HasColumnType("datetime2");
@@ -254,7 +255,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasIndex("KnowledgeBaseId");
 
-                    b.ToTable("KnowledgeSolutions", (string)null);
+                    b.ToTable("KnowledgeSolutions");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.MessageTicket", b =>
@@ -272,21 +273,20 @@ namespace ModuleHelpdesk.Migrations
                     b.Property<DateTime>("DateEnvoi")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EnvoyeParId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("EstLu")
                         .HasColumnType("bit");
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
 
+                    b.Property<int>("envoyeur")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("MessageTickets", (string)null);
+                    b.ToTable("MessageTickets");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.Ticket", b =>
@@ -297,15 +297,14 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentPrincipalId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("AgentPrincipalId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Categorie")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CodeUnidesk")
                         .HasColumnType("nvarchar(max)");
@@ -345,8 +344,8 @@ namespace ModuleHelpdesk.Migrations
                     b.Property<int>("Priorite")
                         .HasColumnType("int");
 
-                    b.Property<string>("SousClientId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("SousClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Statut")
                         .HasColumnType("int");
@@ -360,7 +359,7 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasIndex("InterventionId");
 
-                    b.ToTable("Tickets", (string)null);
+                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.TicketCollaborateur", b =>
@@ -371,9 +370,8 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
@@ -382,7 +380,16 @@ namespace ModuleHelpdesk.Migrations
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("TicketCollaborateurs", (string)null);
+                    b.ToTable("TicketCollaborateurs");
+                });
+
+            modelBuilder.Entity("ModuleHelpDesk.Models.KnowledgeBase", b =>
+                {
+                    b.HasOne("Agent", "CreatedByAgent")
+                        .WithMany()
+                        .HasForeignKey("AgentId");
+
+                    b.Navigation("CreatedByAgent");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.KnowledgeSolution", b =>

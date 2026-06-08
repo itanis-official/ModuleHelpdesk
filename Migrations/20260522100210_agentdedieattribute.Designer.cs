@@ -12,8 +12,8 @@ using ModuleHelpDesk.Data;
 namespace ModuleHelpdesk.Migrations
 {
     [DbContext(typeof(HelpDeskDbContext))]
-    [Migration("20260410092942_InitialHelpDeskLaunch")]
-    partial class InitialHelpDeskLaunch
+    [Migration("20260522100210_agentdedieattribute")]
+    partial class agentdedieattribute
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,148 @@ namespace ModuleHelpdesk.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Agent", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AgentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("CoutHoraire")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Departement")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Nom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Poste")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Rating")
+                        .HasColumnType("decimal(3,2)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SyncedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Telephone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Agents");
+                });
+
+            modelBuilder.Entity("Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Adresse")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AgentResponsableId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CodePostal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmailPrincipal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MatriculeFiscal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("MaxHeuresTraitementTicket")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Pays")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RaisonSociale")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Secteur")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statut")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SyncedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TelephonePrincipal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ville")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("Contact", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Nom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Poste")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SyncedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Telephone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelephoneCountry")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contacts");
+                });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.Intervention", b =>
                 {
@@ -62,6 +204,9 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Categorie")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateCreation")
                         .HasColumnType("datetime2");
 
@@ -87,9 +232,8 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateResolution")
                         .HasColumnType("datetime2");
@@ -127,14 +271,13 @@ namespace ModuleHelpdesk.Migrations
                     b.Property<DateTime>("DateEnvoi")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EnvoyeParId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("EstLu")
                         .HasColumnType("bit");
 
                     b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("envoyeur")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -152,15 +295,14 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentPrincipalId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AgentPrincipalId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Categorie")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CodeUnidesk")
                         .HasColumnType("nvarchar(max)");
@@ -173,6 +315,9 @@ namespace ModuleHelpdesk.Migrations
 
                     b.Property<double>("CoutFinal")
                         .HasColumnType("float");
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateFermeture")
                         .HasColumnType("datetime2");
@@ -197,11 +342,8 @@ namespace ModuleHelpdesk.Migrations
                     b.Property<int>("Priorite")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("RequestedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SousClientId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("SousClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Statut")
                         .HasColumnType("int");
@@ -212,6 +354,8 @@ namespace ModuleHelpdesk.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("InterventionId");
 
                     b.ToTable("Tickets");
                 });
@@ -224,9 +368,8 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
@@ -256,6 +399,15 @@ namespace ModuleHelpdesk.Migrations
                         .IsRequired();
 
                     b.Navigation("Ticket");
+                });
+
+            modelBuilder.Entity("ModuleHelpDesk.Models.Ticket", b =>
+                {
+                    b.HasOne("ModuleHelpDesk.Models.Intervention", "Intervention")
+                        .WithMany()
+                        .HasForeignKey("InterventionId");
+
+                    b.Navigation("Intervention");
                 });
 
             modelBuilder.Entity("ModuleHelpDesk.Models.TicketCollaborateur", b =>

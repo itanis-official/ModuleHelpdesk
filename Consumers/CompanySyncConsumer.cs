@@ -52,6 +52,7 @@ public class CompanySyncConsumer : IConsumer<CompanySyncEvent>
         entity.Statut = msg.Statut;
         entity.MaxHeuresTraitementTicket = msg.MaxHeuresTraitementTicket;
         entity.SyncedAt = DateTime.UtcNow;
+        entity.AgentResponsableId = msg.AgentResponsableId;
 
         await _db.SaveChangesAsync();
     }

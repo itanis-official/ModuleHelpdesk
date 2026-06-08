@@ -11,6 +11,6 @@ namespace ModuleHelpDesk.Models
         public int TicketId { get; set; }
 
         [Required]
-        public required string AgentId { get; set; } 
+        public required int AgentId { get; set; } 
     }
 }

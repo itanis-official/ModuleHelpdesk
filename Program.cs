@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using ModuleHelpDesk.Data;
 using ModuleHelpDesk.Repositories;
 using ModuleHelpdesk.Consumers;
+// ─── Directives requises pour l'authentification Authentik ──────────────────
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,24 @@ builder.Services.AddCors(options =>
     });
 });
 
+// ─── Configuration de l'authentification JwtBearer (Authentik) ──────────────
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = "https://authentik.itanis.tn/application/o/erp-application/";
+        options.Audience = "BGnXFXMepfj4wh0AVli40YPWPjTFs9SgBxf1Udxk";
+        options.RequireHttpsMetadata = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true
+        };
+    });
+
+builder.Services.AddAuthorization();
+
 var connectionString = builder.Configuration.GetConnectionString("HelpDeskConnection");
 builder.Services.AddDbContext<HelpDeskDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -31,9 +52,9 @@ builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 
 builder.Services.AddMassTransit(x =>
 {
-    // Register your consumers
     x.AddConsumer<AgentSyncConsumer>();
     x.AddConsumer<CompanySyncConsumer>();
+    x.AddConsumer<ContactSyncConsumer>();
 
     x.UsingRabbitMq((ctx, cfg) =>
     {
@@ -43,10 +64,14 @@ builder.Services.AddMassTransit(x =>
             h.Password("rabbitMQ-dev");
         });
 
-        // Each consumer needs its own receive endpoint
         cfg.ReceiveEndpoint("helpdesk-agent-sync", e =>
         {
             e.ConfigureConsumer<AgentSyncConsumer>(ctx);
+        });
+
+        cfg.ReceiveEndpoint("helpdesk-contact-sync", e =>
+        {
+            e.ConfigureConsumer<ContactSyncConsumer>(ctx);
         });
 
         cfg.ReceiveEndpoint("helpdesk-company-sync", e =>
@@ -64,9 +89,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// ─── Middleware order matters ──────────────────────────────────────────────────
-app.UseCors("AllowFrontend");   // must be before UseAuthorization
-app.UseAuthorization(); 
+app.UseCors("AllowFrontend");       // 1. Gère les requêtes Cross-Origin d'abord
+app.UseAuthentication();           // 2. Extrait et valide le Token Authentik (Ajouté)
+app.UseAuthorization();            // 3. Vérifie les droits d'accès aux routes
+
+app.UseStaticFiles();
 app.MapControllers(); 
 
 app.Run();

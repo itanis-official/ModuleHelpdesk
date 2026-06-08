@@ -5,25 +5,24 @@
 namespace ModuleHelpdesk.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryToKnowledgeBase : Migration
+    public partial class agentdedieattribute : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "Categorie",
-                table: "KnowledgeBases",
+                name: "AgentResponsableId",
+                table: "Companies",
                 type: "int",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Categorie",
-                table: "KnowledgeBases");
+                name: "AgentResponsableId",
+                table: "Companies");
         }
     }
 }

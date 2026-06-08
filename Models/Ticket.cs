@@ -45,20 +45,19 @@ namespace ModuleHelpDesk.Models
         public string Description { get; set; } = string.Empty;
 
         [Required]
-        public string ClientId { get; set; } = string.Empty;
-        public string? SousClientId { get; set; }
+        public int ClientId { get; set; } 
+        public int? SousClientId { get; set; }
 
         public StatutTicket Statut { get; set; } = StatutTicket.Nouveau;
         public PrioriteTicket Priorite { get; set; } = PrioriteTicket.Basse;
 
-        // Retour à DateCreation en Français
         public DateTime DateCreation { get; set; } = DateTime.Now;
         public DateTime? DateFermeture { get; set; }
         
         public double DureeReelleMinutes { get; set; }
         public double CoutFinal { get; set; }
 
-        public string? AgentPrincipalId { get; set; }
+        public int? AgentPrincipalId { get; set; }
         public string? CodeUnidesk { get; set; }
 
         [Range(1, 5)]
@@ -71,5 +70,15 @@ namespace ModuleHelpDesk.Models
         [InverseProperty("Ticket")]
         public List<MessageTicket> Messages { get; set; } = new();
         public List<TicketCollaborateur> Collaborateurs { get; set; } = new();
+         [NotMapped]
+        public SessionTimesheetDto? LastSessionMetadata { get; set; }
+    }
+
+    public class SessionTimesheetDto
+    {
+        public int AgentId { get; set; }
+        public double MinutesWorked { get; set; }
+        public DateTime DateDebut { get; set; }
+        public DateTime DateFin { get; set; }
     }
 }

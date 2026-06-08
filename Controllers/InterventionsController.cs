@@ -1,11 +1,13 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModuleHelpDesk.Models;
 using ModuleHelpDesk.Repositories;
 
 namespace ModuleHelpDesk.Controllers
 {
+    [Authorize]
     [ApiController]
-    [Route("api/helpdesk/[controller]")]
+    [Route("api/[controller]")]
     public class InterventionsController : ControllerBase
     {
         private readonly ITicketRepository _repo;

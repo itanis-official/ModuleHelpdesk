@@ -6,11 +6,79 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ModuleHelpdesk.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialHelpDeskLaunch : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Agents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prenom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telephone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Poste = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Departement = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    AgentType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CoutHoraire = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Rating = table.Column<decimal>(type: "decimal(3,2)", nullable: true),
+                    SyncedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Agents", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Companies",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RaisonSociale = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Secteur = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailPrincipal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TelephonePrincipal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Adresse = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CodePostal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ville = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Pays = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MatriculeFiscal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Statut = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaxHeuresTraitementTicket = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    SyncedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Companies", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Contacts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CompanyId = table.Column<int>(type: "int", nullable: false),
+                    Nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prenom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Poste = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telephone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TelephoneCountry = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    SyncedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contacts", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Interventions",
                 columns: table => new
@@ -36,7 +104,8 @@ namespace ModuleHelpdesk.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NomErreur = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     DescriptionErreur = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateCreation = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Categorie = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,15 +122,15 @@ namespace ModuleHelpdesk.Migrations
                     Categorie = table.Column<int>(type: "int", nullable: false),
                     Titre = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ClientId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SousClientId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClientId = table.Column<int>(type: "int", nullable: false),
+                    SousClientId = table.Column<int>(type: "int", nullable: true),
                     Statut = table.Column<int>(type: "int", nullable: false),
                     Priorite = table.Column<int>(type: "int", nullable: false),
-                    RequestedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateFermeture = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DureeReelleMinutes = table.Column<double>(type: "float", nullable: false),
                     CoutFinal = table.Column<double>(type: "float", nullable: false),
-                    AgentPrincipalId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AgentPrincipalId = table.Column<int>(type: "int", nullable: false),
                     CodeUnidesk = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Note = table.Column<int>(type: "int", nullable: true),
                     CommentaireAgent = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -71,6 +140,11 @@ namespace ModuleHelpdesk.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tickets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tickets_Interventions_InterventionId",
+                        column: x => x.InterventionId,
+                        principalTable: "Interventions",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -80,7 +154,7 @@ namespace ModuleHelpdesk.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DescriptionResolution = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AgentId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AgentId = table.Column<int>(type: "int", nullable: false),
                     DateResolution = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PiecesJointesUrls = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KnowledgeBaseId = table.Column<int>(type: "int", nullable: false)
@@ -103,7 +177,7 @@ namespace ModuleHelpdesk.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TicketId = table.Column<int>(type: "int", nullable: false),
-                    EnvoyeParId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    envoyeur = table.Column<int>(type: "int", nullable: false),
                     Contenu = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateEnvoi = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EstLu = table.Column<bool>(type: "bit", nullable: false)
@@ -126,7 +200,7 @@ namespace ModuleHelpdesk.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TicketId = table.Column<int>(type: "int", nullable: false),
-                    AgentId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    AgentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -153,13 +227,24 @@ namespace ModuleHelpdesk.Migrations
                 name: "IX_TicketCollaborateurs_TicketId",
                 table: "TicketCollaborateurs",
                 column: "TicketId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_InterventionId",
+                table: "Tickets",
+                column: "InterventionId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Interventions");
+                name: "Agents");
+
+            migrationBuilder.DropTable(
+                name: "Companies");
+
+            migrationBuilder.DropTable(
+                name: "Contacts");
 
             migrationBuilder.DropTable(
                 name: "KnowledgeSolutions");
@@ -175,6 +260,9 @@ namespace ModuleHelpdesk.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tickets");
+
+            migrationBuilder.DropTable(
+                name: "Interventions");
         }
     }
 }

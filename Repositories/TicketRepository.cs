@@ -11,24 +11,37 @@ namespace ModuleHelpDesk.Repositories
 
         #region Tickets Logic
 
-        // On ajoute .Include partout pour avoir les détails de l'intervention
         public async Task<IEnumerable<Ticket>> GetAllAsync() 
             => await _context.Tickets.Include(t => t.Intervention).ToListAsync();
 
         public async Task<Ticket?> GetByIdAsync(int id) 
             => await _context.Tickets.Include(t => t.Intervention).FirstOrDefaultAsync(t => t.Id == id);
 
-        public async Task<IEnumerable<Ticket>> GetByClientAsync(string clientId) 
+        public async Task<IEnumerable<Ticket>> GetByClientAsync(int clientId) 
             => await _context.Tickets.Include(t => t.Intervention)
                 .Where(t => t.ClientId == clientId).ToListAsync();
 
-        public async Task<IEnumerable<Ticket>> GetBySubClientAsync(string subClientId) 
+        public async Task<IEnumerable<Ticket>> GetBySubClientAsync(int subClientId) 
             => await _context.Tickets.Include(t => t.Intervention)
                 .Where(t => t.SousClientId == subClientId).ToListAsync();
 
-        public async Task<IEnumerable<Ticket>> GetByAgentAsync(string agentId) 
-            => await _context.Tickets.Include(t => t.Intervention)
-                .Where(t => t.AgentPrincipalId == agentId).ToListAsync();
+        public async Task<IEnumerable<Ticket>> GetByCollaborateurAsync(int agentId)
+        {
+            return await _context.Tickets
+                .Include(t => t.Collaborateurs) 
+                .Where(t => t.Collaborateurs.Any(c => c.AgentId == agentId)) 
+                .ToListAsync();
+        }
+
+public async Task<IEnumerable<Ticket>> GetByAgentAsync(int agentId) 
+{
+    return await _context.Tickets
+        .Include(t => t.Intervention)
+        .Include(t => t.Collaborateurs) 
+        .Where(t => t.AgentPrincipalId == agentId || 
+                    t.Collaborateurs.Any(c => c.AgentId == agentId)) 
+        .ToListAsync();
+}
 
         public async Task<Ticket> CreateAsync(Ticket ticket)
         {
@@ -74,7 +87,7 @@ namespace ModuleHelpDesk.Repositories
             => await _context.Tickets.Include(t => t.Intervention)
                 .Where(t => t.Priorite == priority).ToListAsync();
 
-        public async Task<IEnumerable<Ticket>> GetTicketsForFacturationAsync(string clientId, DateTime startDate, DateTime endDate)
+        public async Task<IEnumerable<Ticket>> GetTicketsForFacturationAsync(int clientId, DateTime startDate, DateTime endDate)
         {
             return await _context.Tickets
                 .Include(t => t.Intervention)
@@ -86,7 +99,7 @@ namespace ModuleHelpDesk.Repositories
         }
 
 
-public async Task TransferTicketAsync(int ticketId, string newAgentId)
+public async Task TransferTicketAsync(int ticketId, int newAgentId)
 {
     var ticket = await _context.Tickets.FindAsync(ticketId);
     if (ticket != null)
@@ -97,7 +110,7 @@ public async Task TransferTicketAsync(int ticketId, string newAgentId)
     }
 }
 
-public async Task AddCollaborateursAsync(int ticketId, List<string> agentIds)
+public async Task AddCollaborateursAsync(int ticketId, List<int> agentIds)
 
 {
     var existingAgentIds = await _context.TicketCollaborateurs
@@ -119,7 +132,7 @@ public async Task AddCollaborateursAsync(int ticketId, List<string> agentIds)
     }
 }
 
-public async Task SyncCollaborateursAsync(int ticketId, List<string> newAgentIds)
+public async Task SyncCollaborateursAsync(int ticketId, List<int> newAgentIds)
 {
     var currentCollabs = await _context.TicketCollaborateurs
         .Where(c => c.TicketId == ticketId)
@@ -189,26 +202,36 @@ public async Task<IEnumerable<TicketCollaborateur>> GetCollaborateursByTicketIdA
 
         #endregion
 
-        #region Knowledge Logic
+       #region Knowledge Logic
 
         public async Task<IEnumerable<KnowledgeBase>> GetAllKnowledgeBaseAsync() 
-            => await _context.KnowledgeBases.Include(kb => kb.Solutions).ToListAsync();
+            => await _context.KnowledgeBases
+                .Include(kb => kb.Solutions)
+                .Include(kb => kb.CreatedByAgent) 
+                .ToListAsync();
 
         public async Task<KnowledgeBase?> GetKnowledgeBaseByIdAsync(int id) 
-            => await _context.KnowledgeBases.Include(kb => kb.Solutions).FirstOrDefaultAsync(kb => kb.Id == id);
+            => await _context.KnowledgeBases
+                .Include(kb => kb.Solutions)
+                .Include(kb => kb.CreatedByAgent) 
+                .FirstOrDefaultAsync(kb => kb.Id == id);
 
         public async Task<KnowledgeBase> CreateKnowledgeBaseAsync(KnowledgeBase kb)
-        {
-            kb.DateCreation = DateTime.Now;
-            _context.KnowledgeBases.Add(kb);
-            await _context.SaveChangesAsync();
-            return kb;
-        }
+{
+    _context.KnowledgeBases.Add(kb);
+    await _context.SaveChangesAsync();
+
+    return await _context.KnowledgeBases
+        .Include(k => k.Solutions)
+        .Include(k => k.CreatedByAgent) 
+        .FirstOrDefaultAsync(k => k.Id == kb.Id);
+}
 
         public async Task<IEnumerable<KnowledgeBase>> GetKnowledgeByCategorieAsync(int categorie)
         {
             return await _context.KnowledgeBases
                 .Include(kb => kb.Solutions)
+                .Include(kb => kb.CreatedByAgent) 
                 .Where(kb => (int)kb.Categorie == categorie)
                 .ToListAsync();
         }
@@ -248,6 +271,10 @@ public async Task<IEnumerable<TicketCollaborateur>> GetCollaborateursByTicketIdA
             if (updatedFields.Categorie != 0) 
                 existingKb.Categorie = updatedFields.Categorie;
 
+            // Update AgentId if a valid one is supplied
+            if (updatedFields.AgentId != 0)
+                existingKb.AgentId = updatedFields.AgentId;
+
             await _context.SaveChangesAsync();
         }
 
@@ -269,7 +296,7 @@ public async Task<IEnumerable<TicketCollaborateur>> GetCollaborateursByTicketIdA
             if (!string.IsNullOrWhiteSpace(updatedFields.DescriptionResolution) && updatedFields.DescriptionResolution != "string")
                 existingSol.DescriptionResolution = updatedFields.DescriptionResolution;
 
-            if (!string.IsNullOrWhiteSpace(updatedFields.AgentId) && updatedFields.AgentId != "string")
+            if (updatedFields.AgentId != 0)
                 existingSol.AgentId = updatedFields.AgentId;
 
             if (updatedFields.PiecesJointesUrls != null && updatedFields.PiecesJointesUrls.Any())
@@ -277,6 +304,50 @@ public async Task<IEnumerable<TicketCollaborateur>> GetCollaborateursByTicketIdA
 
             await _context.SaveChangesAsync();
         }
+
+        #endregion
+
+        #region Companies Logic
+
+        public async Task<IEnumerable<Company>> GetAllCompaniesAsync()
+            => await _context.Companies.ToListAsync();
+
+        public async Task<Company?> GetCompanyByIdAsync(int id)
+            => await _context.Companies.FindAsync(id);
+
+        #endregion
+
+        #region Agents Logic
+
+        public async Task<IEnumerable<Agent>> GetAllAgentsAsync()
+            => await _context.Agents.ToListAsync();
+
+        public async Task<Agent?> GetAgentByIdAsync(int id)
+            => await _context.Agents.FindAsync(id);
+
+        public async Task<Agent?> GetDedicatedAgentByCompanyAsync(int companyId)
+{
+    var company = await _context.Companies.FirstOrDefaultAsync(c => c.Id == companyId);
+    if (company == null || company.AgentResponsableId == null) return null;
+
+    return await _context.Agents.FirstOrDefaultAsync(a => a.Id == company.AgentResponsableId);
+}
+
+        public async Task<Agent?> GetAgentByEmailAsync(string email)
+            => await _context.Agents
+                .FirstOrDefaultAsync(a => a.Email.ToLower() == email.ToLower());
+
+        #endregion
+
+        #region Contacts Logic
+
+        public async Task<IEnumerable<Contact>> GetAllContactsAsync()
+            => await _context.Contacts.ToListAsync();
+
+        public async Task<IEnumerable<Contact>> GetContactsByCompanyAsync(int companyId)
+            => await _context.Contacts
+                .Where(c => c.CompanyId == companyId)
+                .ToListAsync();
 
         #endregion
     }

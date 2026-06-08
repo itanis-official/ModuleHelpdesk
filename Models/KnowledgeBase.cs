@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModuleHelpDesk.Models
 {
@@ -24,5 +25,10 @@ namespace ModuleHelpDesk.Models
 
 
         public List<KnowledgeSolution> Solutions { get; set; } = new();
+
+
+        public int? AgentId { get; set; }
+        [ForeignKey("AgentId")]
+        public virtual Agent? CreatedByAgent { get; set; }
     }
 }

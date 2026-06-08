@@ -11,6 +11,7 @@ public class Company
     public string? Pays { get; set; }
     public string? MatriculeFiscal { get; set; }
     public string? Statut { get; set; }
-    public decimal? MaxHeuresTraitementTicket { get; set; }   // SLA ticket
+    public decimal? MaxHeuresTraitementTicket { get; set; } 
+    public int? AgentResponsableId { get; set; }
     public DateTime SyncedAt { get; set; } = DateTime.UtcNow;
 }

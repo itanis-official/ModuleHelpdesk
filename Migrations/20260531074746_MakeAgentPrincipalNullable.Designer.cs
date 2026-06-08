@@ -12,8 +12,8 @@ using ModuleHelpDesk.Data;
 namespace ModuleHelpdesk.Migrations
 {
     [DbContext(typeof(HelpDeskDbContext))]
-    [Migration("20260508114319_UpdateAgentIdNonIdentity")]
-    partial class UpdateAgentIdNonIdentity
+    [Migration("20260531074746_MakeAgentPrincipalNullable")]
+    partial class MakeAgentPrincipalNullable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,7 +60,7 @@ namespace ModuleHelpdesk.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("Rating")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(3,2)");
 
                     b.Property<string>("Role")
                         .IsRequired()
@@ -80,13 +80,13 @@ namespace ModuleHelpdesk.Migrations
             modelBuilder.Entity("Company", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Adresse")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AgentResponsableId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CodePostal")
                         .HasColumnType("nvarchar(max)");
@@ -130,10 +130,7 @@ namespace ModuleHelpdesk.Migrations
             modelBuilder.Entity("Contact", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
@@ -235,9 +232,8 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateResolution")
                         .HasColumnType("datetime2");
@@ -275,14 +271,13 @@ namespace ModuleHelpdesk.Migrations
                     b.Property<DateTime>("DateEnvoi")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EnvoyeParId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("EstLu")
                         .HasColumnType("bit");
 
                     b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("envoyeur")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -300,15 +295,14 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentPrincipalId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("AgentPrincipalId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Categorie")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<string>("CodeUnidesk")
                         .HasColumnType("nvarchar(max)");
@@ -348,8 +342,8 @@ namespace ModuleHelpdesk.Migrations
                     b.Property<int>("Priorite")
                         .HasColumnType("int");
 
-                    b.Property<string>("SousClientId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("SousClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Statut")
                         .HasColumnType("int");
@@ -374,9 +368,8 @@ namespace ModuleHelpdesk.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");

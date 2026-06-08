@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using ModuleHelpDesk.Models;
 using System.Text.Json;
+using System.Linq;
 
 namespace ModuleHelpDesk.Data
 {
@@ -17,10 +19,6 @@ namespace ModuleHelpDesk.Data
         public DbSet<MessageTicket> MessageTickets { get; set; }
         public DbSet<KnowledgeBase> KnowledgeBases { get; set; }
         public DbSet<KnowledgeSolution> KnowledgeSolutions { get; set; }
-
-
-
-
         public DbSet<Agent> Agents { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Contact> Contacts { get; set; }
@@ -29,22 +27,54 @@ namespace ModuleHelpDesk.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Conversion JSON pour les listes d'URLs
-            modelBuilder.Entity<Ticket>()
-                .Property(t => t.ImagesUrls)
-                .HasConversion(
-                    v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null!),
-                    v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null!) ?? new List<string>()
-                );
+            var stringListComparer = new ValueComparer<List<string>>(
+                (c1, c2) => c1!.SequenceEqual(c2!),
+                c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                c => c.ToList());
 
-            modelBuilder.Entity<KnowledgeSolution>()
-                .Property(s => s.PiecesJointesUrls)
-                .HasConversion(
-                    v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null!),
-                    v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null!) ?? new List<string>()
-                );
+            modelBuilder.Entity<Agent>(entity =>
+            {
+                entity.Property(a => a.CoutHoraire).HasColumnType("decimal(18,2)");
+                entity.Property(a => a.Rating).HasColumnType("decimal(3,2)");
+                entity.Property(a => a.Id).ValueGeneratedNever();
+            });
 
-            // Fix pour la relation Ticket <-> Message
+            modelBuilder.Entity<Company>(entity =>
+            {
+                entity.Property(c => c.MaxHeuresTraitementTicket).HasColumnType("decimal(18,2)");
+                entity.Property(c => c.Id).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<Contact>(entity =>
+            {
+                entity.Property(c => c.Id).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<Ticket>(entity =>
+            {
+                entity.Property(t => t.ImagesUrls)
+                    .HasConversion(
+                        v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null!),
+                        v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null!) ?? new List<string>()
+                    )
+                    .Metadata.SetValueComparer(stringListComparer);
+            });
+
+            modelBuilder.Entity<KnowledgeSolution>(entity =>
+            {
+                entity.Property(s => s.PiecesJointesUrls)
+                    .HasConversion(
+                        v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null!),
+                        v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null!) ?? new List<string>()
+                    )
+                    .Metadata.SetValueComparer(stringListComparer);
+
+                entity.HasOne<KnowledgeBase>()
+                      .WithMany(k => k.Solutions)
+                      .HasForeignKey(s => s.KnowledgeBaseId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
+
             modelBuilder.Entity<MessageTicket>(entity =>
             {
                 entity.HasOne(m => m.Ticket)
@@ -52,19 +82,6 @@ namespace ModuleHelpDesk.Data
                       .HasForeignKey(m => m.TicketId)
                       .OnDelete(DeleteBehavior.Cascade);
             });
-
-            // Relation KnowledgeBase <-> Solution
-            modelBuilder.Entity<KnowledgeSolution>()
-                .HasOne<KnowledgeBase>()
-                .WithMany(k => k.Solutions)
-                .HasForeignKey(s => s.KnowledgeBaseId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
-                modelBuilder.Entity<Agent>()
-        .Property(a => a.Id)
-        .ValueGeneratedNever();
         }
-        
     }
 }

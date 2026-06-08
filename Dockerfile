@@ -1,30 +1,38 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# 1. Copie des fichiers projets (.csproj)
-# Rappel : le contexte est "..", donc on doit spécifier les sous-dossiers
+# Build args for GitHub Packages auth (passed at build time, never stored in image)
+ARG GITHUB_USERNAME
+ARG GITHUB_TOKEN
+
+# 1. Copy project file and nuget.config
 COPY ModuleHelpdesk/ModuleHelpdesk.csproj ModuleHelpdesk/
-COPY Contrat-d-evenement/ITANIS.SharedEvents.csproj Contrat-d-evenement/
+COPY ModuleHelpdesk/nuget.config ModuleHelpdesk/
 
-# 2. Restauration des dépendances
-# On restaure le projet principal qui va automatiquement chercher ses références
-RUN dotnet restore ModuleHelpdesk/ModuleHelpdesk.csproj
+# 2. Restore — inject credentials inline, never baked into image layers
+RUN dotnet nuget add source "https://nuget.pkg.github.com/itanis-official/index.json" \
+    --name github-itanis \
+    --username "${GITHUB_USERNAME}" \
+    --password "${GITHUB_TOKEN}" \
+    --store-password-in-clear-text \
+    --configfile ModuleHelpdesk/nuget.config \
+    || true
 
-# 3. Copie du code source complet
+RUN dotnet restore ModuleHelpdesk/ModuleHelpdesk.csproj \
+    --configfile ModuleHelpdesk/nuget.config
+
+# 3. Copy full source
 COPY ModuleHelpdesk/ ModuleHelpdesk/
-COPY Contrat-d-evenement/ Contrat-d-evenement/
 
-# 4. Publication
+# 4. Publish
 WORKDIR /src/ModuleHelpdesk
 RUN dotnet publish -c Release -o /app/out
 
-# --- Étape finale ---
+# --- Final stage (no credentials, no SDK) ---
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
 
-# Configuration réseau
 ENV ASPNETCORE_URLS=http://+:8080
-EXPOSE 8080 
-
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "ModuleHelpdesk.dll"]

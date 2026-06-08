@@ -16,7 +16,7 @@ namespace ModuleHelpDesk.Models
 
         [Required]
 
-        public string EnvoyeParId { get; set; } = string.Empty; 
+        public int envoyeur { get; set; } 
 
         [Required]
 

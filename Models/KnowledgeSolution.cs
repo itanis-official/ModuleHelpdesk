@@ -11,7 +11,7 @@ namespace ModuleHelpDesk.Models
         public string DescriptionResolution { get; set; } = string.Empty;
 
         [Required]
-        public string AgentId { get; set; } = string.Empty; 
+        public int AgentId { get; set; } 
 
         public DateTime DateResolution { get; set; } = DateTime.Now;
 

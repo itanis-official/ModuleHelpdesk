@@ -49,6 +49,7 @@ builder.Services.AddDbContext<HelpDeskDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<ModuleHelpDesk.Services.NotificationService>();
 
 builder.Services.AddMassTransit(x =>
 {

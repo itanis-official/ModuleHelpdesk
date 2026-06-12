@@ -2,8 +2,11 @@ using ITANIS.SharedEvents;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ModuleHelpDesk.Data;
 using ModuleHelpDesk.Models;
 using ModuleHelpDesk.Repositories;
+using ModuleHelpDesk.Services;
 
 namespace ModuleHelpDesk.Controllers
 {
@@ -14,11 +17,15 @@ namespace ModuleHelpDesk.Controllers
     {
         private readonly ITicketRepository _repo;
         private readonly IPublishEndpoint _publishEndpoint;
+        private readonly NotificationService _notif;
+        private readonly HelpDeskDbContext _db;
 
-        public TicketsController(ITicketRepository repo, IPublishEndpoint publishEndpoint)
+        public TicketsController(ITicketRepository repo, IPublishEndpoint publishEndpoint, NotificationService notif, HelpDeskDbContext db)
         {
             _repo = repo;
             _publishEndpoint = publishEndpoint;
+            _notif = notif;
+            _db = db;
         }
 
         [HttpGet]
@@ -122,10 +129,43 @@ public async Task<IActionResult> Update(int id, Ticket ticket)
         {
             await _repo.ChangeStatusAsync(id, newStatus);
 
-            // Fetch updated ticket to sync the new status
             var ticket = await _repo.GetByIdAsync(id);
             if (ticket != null)
+            {
                 await PublishTicketSync(ticket, SyncAction.Updated);
+
+                var typedStatus = (StatutTicket)newStatus;
+
+                // ── Ticket accepted (EnAttente = 1) ──────────────────────────────
+                if (typedStatus == StatutTicket.EnAttente)
+                {
+                    var receivers = new List<(int, ReceiverType)>
+                    {
+                        (ticket.ClientId, ReceiverType.Company)
+                    };
+                    if (ticket.SousClientId.HasValue)
+                        receivers.Add((ticket.SousClientId.Value, ReceiverType.Contact));
+                    if (ticket.AgentPrincipalId.HasValue)
+                        receivers.Add((ticket.AgentPrincipalId.Value, ReceiverType.Agent));
+
+                    await _notif.NotifyManyAsync(receivers,
+                        $"Ticket #{ticket.Id} « {ticket.Titre} » a été accepté.", ticket.Id);
+                }
+
+                // ── Ticket closed (Clos = 5) ──────────────────────────────────────
+                if (typedStatus == StatutTicket.Clos)
+                {
+                    var receivers = new List<(int, ReceiverType)>
+                    {
+                        (ticket.ClientId, ReceiverType.Company)
+                    };
+                    if (ticket.SousClientId.HasValue)
+                        receivers.Add((ticket.SousClientId.Value, ReceiverType.Contact));
+
+                    await _notif.NotifyManyAsync(receivers,
+                        $"Ticket #{ticket.Id} « {ticket.Titre} » a été clôturé.", ticket.Id);
+                }
+            }
 
             return NoContent();
         }
@@ -155,10 +195,13 @@ public async Task<IActionResult> Update(int id, Ticket ticket)
 
             await _repo.TransferTicketAsync(id, newAgentId);
 
-            // Fetch again to get updated state
             var updated = await _repo.GetByIdAsync(id);
             if (updated != null)
                 await PublishTicketSync(updated, SyncAction.Updated);
+
+            // Notify new agent principal
+            await _notif.NotifyAsync(newAgentId, ReceiverType.Agent,
+                $"Le ticket #{ticket.Id} « {ticket.Titre} » vous a été transféré.", ticket.Id);
 
             return Ok(new { message = $"Ticket transféré à l'agent {newAgentId}" });
         }
@@ -189,6 +232,15 @@ public async Task<IActionResult> Update(int id, Ticket ticket)
             var collaborateurs = await _repo.GetCollaborateursByTicketIdAsync(id);
             foreach (var c in collaborateurs.Where(c => agentIds.Contains(c.AgentId)))
                 await PublishCollaborateurSync(c, SyncAction.Created);
+
+            // Notify each new collaborateur
+            var ticket = await _repo.GetByIdAsync(id);
+            if (ticket != null)
+            {
+                var receivers = agentIds.Select(agentId => (agentId, ReceiverType.Agent));
+                await _notif.NotifyManyAsync(receivers,
+                    $"Vous avez été ajouté en collaboration sur le ticket #{ticket.Id} « {ticket.Titre} ».", ticket.Id);
+            }
 
             return Ok(new { message = "Collaborateurs ajoutés." });
         }

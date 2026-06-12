@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nbnd8p37l91/Wd0+cSi4TDbCAYCYr2tiRErT7Lv5o/w=",
+  "Hash": "DHXx4TytbBiL8RKyiNeBFXQ2emCtTkzQs9kiHL33CM4=",
   "Source": "ModuleHelpdesk",
   "BasePath": "_content/ModuleHelpdesk",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ModuleHelpdesk\\wwwroot",
       "Source": "ModuleHelpdesk",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\0344d983-8057-47d2-a642-e35fc4fba3a2.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\0344d983-8057-47d2-a642-e35fc4fba3a2.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/0344d983-8057-47d2-a642-e35fc4fba3a2.png",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\0344d983-8057-47d2-a642-e35fc4fba3a2.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\0486265a-d449-4771-b791-7d35e3483cec.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\0486265a-d449-4771-b791-7d35e3483cec.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/0486265a-d449-4771-b791-7d35e3483cec.png",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\0486265a-d449-4771-b791-7d35e3483cec.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\2544ec15-3cc3-4dac-83a9-529527d48616.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\2544ec15-3cc3-4dac-83a9-529527d48616.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/2544ec15-3cc3-4dac-83a9-529527d48616.png",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\2544ec15-3cc3-4dac-83a9-529527d48616.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\262c796a-f915-4b4c-8891-69881481a96e.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\262c796a-f915-4b4c-8891-69881481a96e.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/262c796a-f915-4b4c-8891-69881481a96e.png",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\262c796a-f915-4b4c-8891-69881481a96e.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\277b4188-5078-47dc-931a-8cc5426c729f.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\277b4188-5078-47dc-931a-8cc5426c729f.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/277b4188-5078-47dc-931a-8cc5426c729f.png",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\277b4188-5078-47dc-931a-8cc5426c729f.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\2cfb783f-adb2-41db-9c41-37df74821e9c.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\2cfb783f-adb2-41db-9c41-37df74821e9c.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/2cfb783f-adb2-41db-9c41-37df74821e9c.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\2cfb783f-adb2-41db-9c41-37df74821e9c.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\35c993c9-1abe-4ba8-a2ab-20d55eab523d.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\35c993c9-1abe-4ba8-a2ab-20d55eab523d.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/35c993c9-1abe-4ba8-a2ab-20d55eab523d.png",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\35c993c9-1abe-4ba8-a2ab-20d55eab523d.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\35dc7e5e-f0c8-4036-9d93-c06264b7cbc5.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\35dc7e5e-f0c8-4036-9d93-c06264b7cbc5.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/35dc7e5e-f0c8-4036-9d93-c06264b7cbc5.png",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\35dc7e5e-f0c8-4036-9d93-c06264b7cbc5.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\3970c73b-c973-48d2-b432-31e0bc45525e.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\3970c73b-c973-48d2-b432-31e0bc45525e.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/3970c73b-c973-48d2-b432-31e0bc45525e.png",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\3970c73b-c973-48d2-b432-31e0bc45525e.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\431d55b0-f3e8-49db-96bb-c5e3abea5c67.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\431d55b0-f3e8-49db-96bb-c5e3abea5c67.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/431d55b0-f3e8-49db-96bb-c5e3abea5c67.png",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\431d55b0-f3e8-49db-96bb-c5e3abea5c67.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\4397de79-7708-4302-ba3a-90cf17a5e55e.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\4397de79-7708-4302-ba3a-90cf17a5e55e.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/4397de79-7708-4302-ba3a-90cf17a5e55e.png",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\4397de79-7708-4302-ba3a-90cf17a5e55e.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\46dad3d5-fa5a-4fd3-93ad-e667c0ec877a.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\46dad3d5-fa5a-4fd3-93ad-e667c0ec877a.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/46dad3d5-fa5a-4fd3-93ad-e667c0ec877a.png",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\46dad3d5-fa5a-4fd3-93ad-e667c0ec877a.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\55b10c54-3882-4a34-9cb3-d74b72f49663.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\55b10c54-3882-4a34-9cb3-d74b72f49663.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/55b10c54-3882-4a34-9cb3-d74b72f49663.png",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\55b10c54-3882-4a34-9cb3-d74b72f49663.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\5f13ea85-ea2f-4038-9d9e-8811f8a78258.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\5f13ea85-ea2f-4038-9d9e-8811f8a78258.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/5f13ea85-ea2f-4038-9d9e-8811f8a78258.png",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\5f13ea85-ea2f-4038-9d9e-8811f8a78258.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\67ea3bb4-e168-411b-8e20-a4e5e9c4aa96.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\67ea3bb4-e168-411b-8e20-a4e5e9c4aa96.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/67ea3bb4-e168-411b-8e20-a4e5e9c4aa96.png",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\67ea3bb4-e168-411b-8e20-a4e5e9c4aa96.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\82f1a3e0-06ad-4db9-b322-5ad4e51a57a4.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\82f1a3e0-06ad-4db9-b322-5ad4e51a57a4.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/82f1a3e0-06ad-4db9-b322-5ad4e51a57a4.png",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\82f1a3e0-06ad-4db9-b322-5ad4e51a57a4.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\8bb4fc87-c365-46dc-912d-c5769a13288d.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\8bb4fc87-c365-46dc-912d-c5769a13288d.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/8bb4fc87-c365-46dc-912d-c5769a13288d.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\8bb4fc87-c365-46dc-912d-c5769a13288d.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\8e7d738a-a463-4ca8-8482-e8aaf82a4abb.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\8e7d738a-a463-4ca8-8482-e8aaf82a4abb.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/8e7d738a-a463-4ca8-8482-e8aaf82a4abb.png",
       "AssetKind": "All",
@@ -359,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\8e7d738a-a463-4ca8-8482-e8aaf82a4abb.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\8f9712e9-dae4-4ebd-85a2-1a2024ebe1ef.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\8f9712e9-dae4-4ebd-85a2-1a2024ebe1ef.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/8f9712e9-dae4-4ebd-85a2-1a2024ebe1ef.png",
       "AssetKind": "All",
@@ -378,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\8f9712e9-dae4-4ebd-85a2-1a2024ebe1ef.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\969f5202-89c5-4e8e-bbb4-4caca11dc701.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\969f5202-89c5-4e8e-bbb4-4caca11dc701.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/969f5202-89c5-4e8e-bbb4-4caca11dc701.png",
       "AssetKind": "All",
@@ -397,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\969f5202-89c5-4e8e-bbb4-4caca11dc701.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\9ad6b1f8-08c9-456c-ae32-a9ac74a75eb6.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\9ad6b1f8-08c9-456c-ae32-a9ac74a75eb6.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/9ad6b1f8-08c9-456c-ae32-a9ac74a75eb6.png",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\9ad6b1f8-08c9-456c-ae32-a9ac74a75eb6.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\9d5eb49a-c651-42a8-be6f-449f530efba0.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\9d5eb49a-c651-42a8-be6f-449f530efba0.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/9d5eb49a-c651-42a8-be6f-449f530efba0.png",
       "AssetKind": "All",
@@ -435,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\9d5eb49a-c651-42a8-be6f-449f530efba0.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\a06cbd65-1598-4037-b887-c05502afd9fc.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\a06cbd65-1598-4037-b887-c05502afd9fc.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/a06cbd65-1598-4037-b887-c05502afd9fc.png",
       "AssetKind": "All",
@@ -454,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\a06cbd65-1598-4037-b887-c05502afd9fc.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\ace62e26-59b1-49aa-b3d5-b0f479c817d2.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\ace62e26-59b1-49aa-b3d5-b0f479c817d2.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/ace62e26-59b1-49aa-b3d5-b0f479c817d2.png",
       "AssetKind": "All",
@@ -473,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\ace62e26-59b1-49aa-b3d5-b0f479c817d2.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\af8def64-ad81-41f4-864c-d7c48b596056.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\af8def64-ad81-41f4-864c-d7c48b596056.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/af8def64-ad81-41f4-864c-d7c48b596056.png",
       "AssetKind": "All",
@@ -492,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\af8def64-ad81-41f4-864c-d7c48b596056.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\b5e80cb6-081e-447c-839f-fa92551fc7e9.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\b5e80cb6-081e-447c-839f-fa92551fc7e9.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/b5e80cb6-081e-447c-839f-fa92551fc7e9.png",
       "AssetKind": "All",
@@ -511,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\b5e80cb6-081e-447c-839f-fa92551fc7e9.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\b99ebd6d-bf64-4a4f-9294-53ce67e7662d.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\b99ebd6d-bf64-4a4f-9294-53ce67e7662d.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/b99ebd6d-bf64-4a4f-9294-53ce67e7662d.png",
       "AssetKind": "All",
@@ -530,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\b99ebd6d-bf64-4a4f-9294-53ce67e7662d.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\bc2f2468-0ace-4539-87a7-b0e079a44969.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\bc2f2468-0ace-4539-87a7-b0e079a44969.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/bc2f2468-0ace-4539-87a7-b0e079a44969.png",
       "AssetKind": "All",
@@ -549,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\bc2f2468-0ace-4539-87a7-b0e079a44969.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\c3f135fb-e485-43f7-8502-2bea9eda8ed0.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\c3f135fb-e485-43f7-8502-2bea9eda8ed0.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/c3f135fb-e485-43f7-8502-2bea9eda8ed0.png",
       "AssetKind": "All",
@@ -568,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\c3f135fb-e485-43f7-8502-2bea9eda8ed0.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\c568bc08-09b0-4837-8ff0-52c5da6709b8.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\c568bc08-09b0-4837-8ff0-52c5da6709b8.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/c568bc08-09b0-4837-8ff0-52c5da6709b8.png",
       "AssetKind": "All",
@@ -587,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\c568bc08-09b0-4837-8ff0-52c5da6709b8.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\d901fdbd-7d0b-40a8-a3b1-cab6eefbc94a.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\d901fdbd-7d0b-40a8-a3b1-cab6eefbc94a.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/d901fdbd-7d0b-40a8-a3b1-cab6eefbc94a.png",
       "AssetKind": "All",
@@ -606,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\d901fdbd-7d0b-40a8-a3b1-cab6eefbc94a.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\e567b47b-7f46-4243-8652-1713c9e12e24.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\e567b47b-7f46-4243-8652-1713c9e12e24.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/e567b47b-7f46-4243-8652-1713c9e12e24.png",
       "AssetKind": "All",
@@ -625,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\e567b47b-7f46-4243-8652-1713c9e12e24.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\f26983b8-d8a8-4b99-8aab-2e389bc9a143.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\f26983b8-d8a8-4b99-8aab-2e389bc9a143.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/f26983b8-d8a8-4b99-8aab-2e389bc9a143.png",
       "AssetKind": "All",
@@ -644,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\f26983b8-d8a8-4b99-8aab-2e389bc9a143.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\f5dca0db-070e-44ac-a78a-745464ff8d2b.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\knowledge\\f5dca0db-070e-44ac-a78a-745464ff8d2b.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/knowledge/f5dca0db-070e-44ac-a78a-745464ff8d2b.png",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\knowledge\\f5dca0db-070e-44ac-a78a-745464ff8d2b.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\0cfb3f04-99cb-4968-a5a3-ddcc9f979382.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\0cfb3f04-99cb-4968-a5a3-ddcc9f979382.jpg",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/0cfb3f04-99cb-4968-a5a3-ddcc9f979382.jpg",
       "AssetKind": "All",
@@ -682,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\0cfb3f04-99cb-4968-a5a3-ddcc9f979382.jpg"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\60b9d98d-483f-4a74-9e5f-3114baab91a2.jpeg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\60b9d98d-483f-4a74-9e5f-3114baab91a2.jpeg",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/60b9d98d-483f-4a74-9e5f-3114baab91a2.jpeg",
       "AssetKind": "All",
@@ -701,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\60b9d98d-483f-4a74-9e5f-3114baab91a2.jpeg"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\9f74fb80-3df5-4dc2-9d89-4a04e42f2faf.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\9f74fb80-3df5-4dc2-9d89-4a04e42f2faf.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/9f74fb80-3df5-4dc2-9d89-4a04e42f2faf.png",
       "AssetKind": "All",
@@ -720,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\9f74fb80-3df5-4dc2-9d89-4a04e42f2faf.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\a092d19d-3def-4c67-bb1c-ce76220ebcae.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\a092d19d-3def-4c67-bb1c-ce76220ebcae.jpg",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/a092d19d-3def-4c67-bb1c-ce76220ebcae.jpg",
       "AssetKind": "All",
@@ -739,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\a092d19d-3def-4c67-bb1c-ce76220ebcae.jpg"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\a982acaf-32e9-4cef-8fba-1367b4ded5b0.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\a982acaf-32e9-4cef-8fba-1367b4ded5b0.jpg",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/a982acaf-32e9-4cef-8fba-1367b4ded5b0.jpg",
       "AssetKind": "All",
@@ -758,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\a982acaf-32e9-4cef-8fba-1367b4ded5b0.jpg"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\aa98338e-e1e9-409b-8860-a451a9c2d03d.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\aa98338e-e1e9-409b-8860-a451a9c2d03d.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/aa98338e-e1e9-409b-8860-a451a9c2d03d.png",
       "AssetKind": "All",
@@ -777,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\aa98338e-e1e9-409b-8860-a451a9c2d03d.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\b8705bcd-29a0-44ad-9fca-c534a86f4b8d.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\b8705bcd-29a0-44ad-9fca-c534a86f4b8d.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/b8705bcd-29a0-44ad-9fca-c534a86f4b8d.png",
       "AssetKind": "All",
@@ -796,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\b8705bcd-29a0-44ad-9fca-c534a86f4b8d.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\c6f05085-85f8-4b12-bdd6-0109ad91e87f.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\c6f05085-85f8-4b12-bdd6-0109ad91e87f.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/c6f05085-85f8-4b12-bdd6-0109ad91e87f.png",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\c6f05085-85f8-4b12-bdd6-0109ad91e87f.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\d446a33e-0541-495c-9448-f1fdc7467e3b.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\d446a33e-0541-495c-9448-f1fdc7467e3b.jpg",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/d446a33e-0541-495c-9448-f1fdc7467e3b.jpg",
       "AssetKind": "All",
@@ -834,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\d446a33e-0541-495c-9448-f1fdc7467e3b.jpg"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\d4c67fc4-a16b-422f-9126-4e9d33711143.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\d4c67fc4-a16b-422f-9126-4e9d33711143.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/d4c67fc4-a16b-422f-9126-4e9d33711143.png",
       "AssetKind": "All",
@@ -853,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\tickets\\d4c67fc4-a16b-422f-9126-4e9d33711143.png"
     },
     {
-      "Identity": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\ea44db34-3398-4839-88de-7a64e6a50e75.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\uploads\\tickets\\ea44db34-3398-4839-88de-7a64e6a50e75.png",
       "SourceId": "ModuleHelpdesk",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\New folder\\ModuleHelpdesk\\wwwroot\\",
       "BasePath": "_content/ModuleHelpdesk",
       "RelativePath": "uploads/tickets/ea44db34-3398-4839-88de-7a64e6a50e75.png",
       "AssetKind": "All",

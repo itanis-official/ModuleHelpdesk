@@ -614,3 +614,4 @@ c:\Users\Admin\Desktop\New folder\ModuleHelpdesk\obj\Debug\net8.0\ModuleHelpdesk
 c:\Users\Admin\Desktop\New folder\ModuleHelpdesk\obj\Debug\net8.0\ModuleHelpdesk.genruntimeconfig.cache
 c:\Users\Admin\Desktop\New folder\ModuleHelpdesk\obj\Debug\net8.0\ref\ModuleHelpdesk.dll
 c:\Users\Admin\Desktop\New folder\ModuleHelpdesk\bin\Debug\net8.0\nuget.config
+C:\Users\Admin\Desktop\New folder\ModuleHelpdesk\bin\Debug\net8.0\System.ClientModel.dll
